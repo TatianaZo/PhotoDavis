@@ -5,6 +5,109 @@ gsap.registerPlugin(ScrollTrigger);
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
+const GALLERY_ITEMS = [
+  {
+    src: "./5f0511c3-7328-4f3b-b144-e10e17631ca1.png",
+    alt: "Редакционный портрет",
+    title: "Редакция",
+    location: "Москва · студия",
+    description: "Редакционный портрет с мягким рассеянным светом и минимальной сценографией.",
+  },
+  {
+    src: "./6e8cad60-0265-40cf-b511-9b180956bcac.png",
+    alt: "Путешествие в горах",
+    title: "Путешествия",
+    location: "Кавказ · высокогорье",
+    description: "Путешествие и натуральный свет: характер места и масштаб пейзажа в одном кадре.",
+  },
+  {
+    src: "./9b354cef-e2a5-4f2e-a7b7-4b30247fa970.png",
+    alt: "Предложение руки и сердца",
+    title: "История",
+    location: "Прованс · закат",
+    description: "Личная история на съёмке: эмоция, жест и атмосфера золотого часа.",
+  },
+  {
+    src: "./69d3459a-00e3-43bc-8e2c-1003b7301eae.png",
+    alt: "Ночной кемпинг",
+    title: "Атмосфера",
+    location: "Норвегия · фьорд",
+    description: "Ночной кемпинг у воды — тёплый свет внутри кадра и холодная глубина снаружи.",
+  },
+  {
+    src: "./79_____________________________-_____________________4pw8zc89r2tnlid70x2m_1.jpg",
+    alt: "Кинематографический портрет",
+    title: "Кино",
+    location: "Лос-Анджелес · улица",
+    description: "Кинематографический портрет: контраст, глубина и драматургия света.",
+  },
+  {
+    src: "./c561a2ef-0079-414b-9f17-37246c6f0a28.png",
+    alt: "Ювелирный портрет",
+    title: "Бьюти",
+    location: "Париж · студия",
+    description: "Бьюти-съёмка с акцентом на детали, фактуру кожи и ювелирные акценты.",
+  },
+  {
+    src: "./c4786779-029e-4bd1-ba1b-58aa14768074.png",
+    alt: "Редакция в студии",
+    title: "Студия",
+    location: "Москва · циклорама",
+    description: "Студийная редакционная серия: чистый фон, точный свет, сильный силуэт.",
+  },
+  {
+    src: "./chatgpt-12-40-39.png",
+    alt: "Автомобиль в лесу",
+    title: "Авто",
+    location: "Подмосковье · лес",
+    description: "Автомобильная съёмка в окружении природы — бренд и среда в одном кадре.",
+  },
+  {
+    src: "./chatgpt-12-40-52.png",
+    alt: "Конная прогулка",
+    title: "Конная прогулка",
+    location: "Альпы · маршрут",
+    description: "Конная прогулка в горах: движение, воздух и ощущение пути.",
+  },
+  {
+    src: "./chatgpt-12-40-56.png",
+    alt: "Ночное небо",
+    title: "Ночь",
+    location: "Исландия · полярная ночь",
+    description: "Ночная съёмка: звёздное небо, долгая выдержка и тишина пейзажа.",
+  },
+  {
+    src: "./d3138058-4d78-4587-ac06-cd93e6a53fb1.png",
+    alt: "Внедорожник в лесу",
+    title: "Золотой час",
+    location: "Карелия · лесная дорога",
+    description: "Золотой час в лесу — тёплые блики и объёмный контровой свет.",
+  },
+  {
+    src: "./ea9f680f-915c-4e5e-9bf0-da6ee429ede7.png",
+    alt: "Всадница в горах",
+    title: "Приключение",
+    location: "Патагония · нагорье",
+    description: "Приключенческий кадр: масштаб гор, ветер и свобода движения.",
+  },
+  {
+    src: "./generated-image-10.png",
+    alt: "Ночное небо",
+    title: "Животные",
+    location: "Кения · саванна",
+    description: "Репортажная съёмка дикой природы — терпение, свет и момент в кадре.",
+  },
+  {
+    src: "./z-image_00213_.png",
+    alt: "Горный закат",
+    title: "Идеи",
+    location: "Тоскана · холмы",
+    description: "Горный закат: слои пейзажа, тёплая палитра и спокойный ритм кадра.",
+  },
+];
+
+let lenisInstance = null;
+
 function initLenis() {
   if (prefersReducedMotion || typeof Lenis === "undefined") return null;
   const lenis = new Lenis({
@@ -17,6 +120,7 @@ function initLenis() {
     lenis.raf(time * 1000);
   });
   gsap.ticker.lagSmoothing(0);
+  lenisInstance = lenis;
   return lenis;
 }
 
@@ -306,7 +410,9 @@ function initCursor() {
 
   document.body.classList.add("cursor-ready");
 
-  document.querySelectorAll("a, button, .h-card, .footer-legal__block summary").forEach((el) => {
+  document
+    .querySelectorAll("a, button, .h-card, .gallery-trigger, .lightbox__close, .lightbox__peek, .footer-legal__block summary")
+    .forEach((el) => {
     el.addEventListener("pointerenter", () => document.body.classList.add("cursor-hover"));
     el.addEventListener("pointerleave", () => document.body.classList.remove("cursor-hover"));
   });
@@ -331,6 +437,163 @@ function initMobileMenu() {
       panel.hidden = true;
       document.body.style.overflow = "";
     });
+  });
+}
+
+function initLightbox() {
+  const root = document.getElementById("lightbox");
+  if (!root || !GALLERY_ITEMS.length) return;
+
+  const imgEl = root.querySelector(".lightbox__img");
+  const locationEl = root.querySelector("#lightbox-location");
+  const titleEl = root.querySelector("#lightbox-title");
+  const descEl = root.querySelector("#lightbox-desc");
+  const counterEl = root.querySelector("#lightbox-counter");
+  const prevBtn = root.querySelector("[data-lightbox-prev]");
+  const nextBtn = root.querySelector("[data-lightbox-next]");
+  const prevPeekImg = root.querySelector(".lightbox__peek-img--prev");
+  const nextPeekImg = root.querySelector(".lightbox__peek-img--next");
+  const prevPeekTitle = root.querySelector(".lightbox__peek-title--prev");
+  const nextPeekTitle = root.querySelector(".lightbox__peek-title--next");
+  const closeEls = root.querySelectorAll("[data-lightbox-close]");
+
+  let currentIndex = 0;
+  let lastFocus = null;
+
+  const wrapIndex = (index) => (index + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
+
+  function getTriggers() {
+    const desktop = window.matchMedia("(min-width: 900px)").matches;
+    const nodes = desktop
+      ? document.querySelectorAll(".horizontal .h-card")
+      : document.querySelectorAll(".stack-gallery__grid figure");
+    return Array.from(nodes);
+  }
+
+  function prepareTriggers() {
+    getTriggers().forEach((el, index) => {
+      el.classList.add("gallery-trigger");
+      el.setAttribute("tabindex", "0");
+      el.setAttribute("role", "button");
+      const item = GALLERY_ITEMS[index];
+      if (item) {
+        el.setAttribute("aria-label", `Открыть: ${item.title}`);
+      }
+    });
+  }
+
+  function updatePeeks() {
+    const prevItem = GALLERY_ITEMS[wrapIndex(currentIndex - 1)];
+    const nextItem = GALLERY_ITEMS[wrapIndex(currentIndex + 1)];
+
+    prevPeekImg.src = prevItem.src;
+    prevPeekImg.alt = prevItem.alt;
+    prevPeekTitle.textContent = prevItem.title;
+    prevBtn.setAttribute("aria-label", `Предыдущее: ${prevItem.title}`);
+
+    nextPeekImg.src = nextItem.src;
+    nextPeekImg.alt = nextItem.alt;
+    nextPeekTitle.textContent = nextItem.title;
+    nextBtn.setAttribute("aria-label", `Следующее: ${nextItem.title}`);
+  }
+
+  function render(index) {
+    const item = GALLERY_ITEMS[index];
+    if (!item) return;
+
+    currentIndex = index;
+    imgEl.src = item.src;
+    imgEl.alt = item.alt;
+    locationEl.textContent = item.location;
+    titleEl.textContent = item.title;
+    descEl.textContent = item.description;
+    counterEl.textContent = `${index + 1} / ${GALLERY_ITEMS.length}`;
+    updatePeeks();
+  }
+
+  function open(index) {
+    const item = GALLERY_ITEMS[index];
+    if (!item) return;
+
+    lastFocus = document.activeElement;
+    render(index);
+    root.hidden = false;
+    root.setAttribute("aria-hidden", "false");
+    root.classList.add("is-open");
+    document.body.classList.add("lightbox-open");
+    lenisInstance?.stop();
+
+    if (!prefersReducedMotion && typeof gsap !== "undefined") {
+      gsap.fromTo(
+        root.querySelector(".lightbox__panel"),
+        { opacity: 0, scale: 0.97 },
+        { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" }
+      );
+    }
+
+    root.querySelector(".lightbox__close")?.focus();
+  }
+
+  function close() {
+    root.hidden = true;
+    root.setAttribute("aria-hidden", "true");
+    root.classList.remove("is-open");
+    document.body.classList.remove("lightbox-open");
+    lenisInstance?.start();
+    imgEl.removeAttribute("src");
+    lastFocus?.focus?.();
+    lastFocus = null;
+  }
+
+  function step(delta) {
+    render(wrapIndex(currentIndex + delta));
+  }
+
+  function onTriggerActivate(el) {
+    const triggers = getTriggers();
+    const index = triggers.indexOf(el);
+    if (index >= 0) open(index);
+  }
+
+  function bindTriggers() {
+    getTriggers().forEach((el) => {
+      el.onclick = () => onTriggerActivate(el);
+      el.onkeydown = (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onTriggerActivate(el);
+        }
+      };
+    });
+  }
+
+  prepareTriggers();
+  bindTriggers();
+
+  prevBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    step(-1);
+  });
+
+  nextBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    step(1);
+  });
+
+  closeEls.forEach((el) => {
+    el.addEventListener("click", close);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (root.hidden) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") step(-1);
+    if (e.key === "ArrowRight") step(1);
+  });
+
+  window.addEventListener("resize", () => {
+    prepareTriggers();
+    bindTriggers();
   });
 }
 
@@ -382,6 +645,7 @@ window.addEventListener("load", () => {
   initRevealGroups();
   initCursor();
   initMagnetic();
+  initLightbox();
   ScrollTrigger.refresh();
 });
 

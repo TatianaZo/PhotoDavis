@@ -316,6 +316,40 @@
       </footer>
     </main>
 
+    <div id="lightbox" class="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+      <div class="lightbox__backdrop" data-lightbox-close></div>
+      <div class="lightbox__panel">
+        <button class="lightbox__close" type="button" data-lightbox-close aria-label="Закрыть">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="lightbox__stage">
+          <button class="lightbox__peek lightbox__peek--prev" type="button" data-lightbox-prev>
+            <span class="lightbox__peek-label">Назад</span>
+            <span class="lightbox__peek-frame">
+              <img class="lightbox__peek-img lightbox__peek-img--prev" src="" alt="" />
+            </span>
+            <span class="lightbox__peek-title lightbox__peek-title--prev"></span>
+          </button>
+          <figure class="lightbox__figure">
+            <img class="lightbox__img" src="" alt="" />
+            <figcaption class="lightbox__meta">
+              <p class="lightbox__eyebrow" id="lightbox-location"></p>
+              <h3 class="lightbox__title" id="lightbox-title"></h3>
+              <p class="lightbox__desc" id="lightbox-desc"></p>
+              <p class="lightbox__counter" id="lightbox-counter" aria-live="polite"></p>
+            </figcaption>
+          </figure>
+          <button class="lightbox__peek lightbox__peek--next" type="button" data-lightbox-next>
+            <span class="lightbox__peek-label">Далее</span>
+            <span class="lightbox__peek-frame">
+              <img class="lightbox__peek-img lightbox__peek-img--next" src="" alt="" />
+            </span>
+            <span class="lightbox__peek-title lightbox__peek-title--next"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>

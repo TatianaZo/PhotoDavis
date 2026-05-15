@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Димитрий Дэвис — креативный фотограф</title>
+    <meta
+      name="description"
+      content="Портрет, реклама, путешествия и предметная съёмка. Москва и съёмки по миру."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="preloader" aria-hidden="true">
+      <div class="preloader__inner">
+        <p class="preloader__word">Димитрий Дэвис</p>
+        <div class="preloader__line"><span></span></div>
+      </div>
+    </div>
+
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <header class="header">
+      <a class="logo" href="#top">Димитрий Дэвис</a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#work">Портфолио</a>
+        <a href="#about">О себе</a>
+        <a href="#services">Услуги</a>
+        <a href="#prices">Цены</a>
+        <a href="#contact">Контакт</a>
+      </nav>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav>
+        <a href="#work">Портфолио</a>
+        <a href="#about">О себе</a>
+        <a href="#services">Услуги</a>
+        <a href="#prices">Цены</a>
+        <a href="#contact">Контакт</a>
+      </nav>
+    </div>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero__media">
+          <img
+            src="./5d33cbb3-61ba-4d8e-b690-021834efb426.png"
+            alt=""
+            decoding="async"
+            fetchpriority="high"
+          />
+          <div class="hero__veil"></div>
+        </div>
+        <div class="hero__content">
+          <p class="hero__eyebrow reveal-line">Креативная фотография</p>
+          <h1 class="hero__title">
+            <span class="reveal-line">Свет, история,</span>
+            <span class="reveal-line">эмоция в кадре</span>
+          </h1>
+          <p class="hero__lead reveal-line">
+            Портрет, реклама, путешествия и предметная съёмка — от идеи до финального кадра.
+          </p>
+          <a class="hero__cta magnetic" href="#work">
+            <span>Смотреть работы</span>
+          </a>
+        </div>
+        <div class="hero__scroll">
+          <span>Прокрутите</span>
+          <span class="hero__scroll-line"></span>
+        </div>
+      </section>
+
+      <section class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Портрет · Реклама · Путешествия · Редакция · Предмет · Бренд</span>
+          <span>Портрет · Реклама · Путешествия · Редакция · Предмет · Бренд</span>
+        </div>
+      </section>
+
+      <section class="intro" id="about">
+        <div class="intro__grid">
+          <div class="intro__text">
+            <h2 class="section-title">
+              <span class="reveal-mask"><span>О взгляде</span></span>
+            </h2>
+            <p class="intro__p reveal-up">
+              Я снимаю не просто людей и места — я собираю атмосферу, свет и характер в кадры, к которым хочется возвращаться. От студийного минимализма до горных
+              маршрутов — одна цель: передать характер и атмосферу.
+            </p>
+            <p class="intro__p reveal-up">
+              Работаю с брендами, редакциями и частными историями. Подбираю сценографию,
+              ритм съёмочного дня и постпродакшн под задачу.
+            </p>
+          </div>
+          <figure class="intro__figure reveal-scale">
+            <img src="./442e1c12-e8a8-43d0-ae2d-e383911c30c1.png" alt="Портрет в студии" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="horizontal" id="work" aria-label="Галерея работ">
+        <div class="horizontal__sticky">
+          <div class="horizontal__head">
+            <h2 class="section-title section-title--light">
+              <span class="reveal-mask"><span>Избранное</span></span>
+            </h2>
+            <p class="horizontal__hint reveal-up">Примеры работ</p>
+          </div>
+          <div class="horizontal__rail">
+            <article class="h-card">
+              <img src="./5f0511c3-7328-4f3b-b144-e10e17631ca1.png" alt="Редакционный портрет" loading="lazy" />
+              <div class="h-card__cap">Редакция</div>
+            </article>
+            <article class="h-card">
+              <img src="./6e8cad60-0265-40cf-b511-9b180956bcac.png" alt="Путешествие в горах" loading="lazy" />
+              <div class="h-card__cap">Путешествия</div>
+            </article>
+            <article class="h-card">
+              <img src="./9b354cef-e2a5-4f2e-a7b7-4b30247fa970.png" alt="Предложение руки и сердца" loading="lazy" />
+              <div class="h-card__cap">История</div>
+            </article>
+            <article class="h-card">
+              <img src="./69d3459a-00e3-43bc-8e2c-1003b7301eae.png" alt="Ночной кемпинг" loading="lazy" />
+              <div class="h-card__cap">Атмосфера</div>
+            </article>
+            <article class="h-card">
+              <img src="./79_____________________________-_____________________4pw8zc89r2tnlid70x2m_1.jpg" alt="Кинематографический портрет" loading="lazy" />
+              <div class="h-card__cap">Кино</div>
+            </article>
+            <article class="h-card">
+              <img src="./c561a2ef-0079-414b-9f17-37246c6f0a28.png" alt="Ювелирный портрет" loading="lazy" />
+              <div class="h-card__cap">Бьюти</div>
+            </article>
+            <article class="h-card">
+              <img src="./c4786779-029e-4bd1-ba1b-58aa14768074.png" alt="Редакция в студии" loading="lazy" />
+              <div class="h-card__cap">Студия</div>
+            </article>
+            <article class="h-card">
+              <img src="./chatgpt-12-40-39.png" alt="Портрет" loading="lazy" />
+              <div class="h-card__cap">Авто</div>
+            </article>
+            <article class="h-card">
+              <img src="./chatgpt-12-40-52.png" alt="Портрет" loading="lazy" />
+              <div class="h-card__cap">Конная прогулка</div>
+            </article>
+            <article class="h-card">
+              <img src="./chatgpt-12-40-56.png" alt="Портрет" loading="lazy" />
+              <div class="h-card__cap">Ночь</div>
+            </article>
+            <article class="h-card">
+              <img src="./d3138058-4d78-4587-ac06-cd93e6a53fb1.png" alt="Внедорожник в лесу" loading="lazy" />
+              <div class="h-card__cap">Золотой час</div>
+            </article>
+            <article class="h-card">
+              <img src="./ea9f680f-915c-4e5e-9bf0-da6ee429ede7.png" alt="Всадница в горах" loading="lazy" />
+              <div class="h-card__cap">Приключение</div>
+            </article>
+            <article class="h-card">
+              <img src="./generated-image-10.png" alt="Ночное небо" loading="lazy" />
+              <div class="h-card__cap">Животные</div>
+            </article>
+            <article class="h-card">
+              <img src="./z-image_00213_.png" alt="Горный закат" loading="lazy" />
+              <div class="h-card__cap">Идеи</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="stack-gallery" aria-label="Галерея — мобильная версия">
+        <h2 class="section-title">Избранное</h2>
+        <div class="stack-gallery__grid">
+          <figure><img src="./5f0511c3-7328-4f3b-b144-e10e17631ca1.png" alt="" loading="lazy" /></figure>
+          <figure><img src="./6e8cad60-0265-40cf-b511-9b180956bcac.png" alt="" loading="lazy" /></figure>
+          <figure><img src="./9b354cef-e2a5-4f2e-a7b7-4b30247fa970.png" alt="" loading="lazy" /></figure>
+          <figure><img src="./69d3459a-00e3-43bc-8e2c-1003b7301eae.png" alt="" loading="lazy" /></figure>
+          <figure><img src="./79_____________________________-_____________________4pw8zc89r2tnlid70x2m_1.jpg" alt="" loading="lazy" /></figure>
+          <figure><img src="./c561a2ef-0079-414b-9f17-37246c6f0a28.png" alt="" loading="lazy" /></figure>
+          <figure><img src="./c4786779-029e-4bd1-ba1b-58aa14768074.png" alt="" loading="lazy" /></figure>
+          <figure><img src="./chatgpt-12-40-39.png" alt="" loading="lazy" /></figure>
+          <figure><img src="./chatgpt-12-40-52.png" alt="" loading="lazy" /></figure>
+          <figure><img src="./chatgpt-12-40-56.png" alt="" loading="lazy" /></figure>
+          <figure><img src="./d3138058-4d78-4587-ac06-cd93e6a53fb1.png" alt="" loading="lazy" /></figure>
+          <figure><img src="./ea9f680f-915c-4e5e-9bf0-da6ee429ede7.png" alt="" loading="lazy" /></figure>
+          <figure><img src="./generated-image-10.png" alt="" loading="lazy" /></figure>
+          <figure><img src="./z-image_00213_.png" alt="" loading="lazy" /></figure>
+        </div>
+      </section>
+
+      <section class="split" id="services">
+        <div class="split__media reveal-parallax">
+          <img src="./5d33cbb3-61ba-4d8e-b690-021834efb426.png" alt="Детали образа" loading="lazy" />
+        </div>
+        <div class="split__content">
+          <h2 class="section-title"><span class="reveal-mask"><span>Услуги</span></span></h2>
+          <ul class="services">
+            <li class="reveal-up"><strong>Портрет и лукбук</strong> — студия или локация, постановка света.</li>
+            <li class="reveal-up"><strong>Реклама и бренд</strong> — визуальная концепция и серия кадров.</li>
+            <li class="reveal-up"><strong>Путешествия</strong> — репортаж, лайфстайл, натуральный свет.</li>
+            <li class="reveal-up"><strong>Постпродакшн</strong> — цвет, ретушь, подготовка под печать и веб.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="prices" id="prices" aria-labelledby="prices-heading">
+        <div class="prices__inner">
+          <h2 class="section-title prices__title" id="prices-heading">
+            <span class="reveal-mask"><span>Цены</span></span>
+          </h2>
+          <p class="prices__lead reveal-up">
+            Ориентиры по бюджету: точная смета после брифа. Ниже указаны типовые вилки для частных и коммерческих
+            проектов.
+          </p>
+          <div class="prices__grid">
+            <article class="price-card reveal-up">
+              <p class="price-card__tier">Базовый</p>
+              <p class="price-card__amount">от 18 000 ₽</p>
+              <p class="price-card__note">Минимальный ценник</p>
+              <ul class="price-card__list">
+                <li>Студия или одна локация, до 2 часов</li>
+                <li>Один образ, базовая ретушь 10 кадров</li>
+                <li>Подходит для портрета или предмета «в кадр»</li>
+              </ul>
+            </article>
+            <article class="price-card price-card--featured reveal-up">
+              <p class="price-card__badge">Чаще выбирают</p>
+              <p class="price-card__tier">Стандарт</p>
+              <p class="price-card__amount">от 52 000 ₽</p>
+              <p class="price-card__note">Средний ценник</p>
+              <ul class="price-card__list">
+                <li>Полдня съёмки, 2–3 локации или смена света в студии</li>
+                <li>Несколько образов, постпродакшн до 30 кадров</li>
+                <li>Реклама, лукбук, семейная или love-story серия</li>
+              </ul>
+            </article>
+            <article class="price-card reveal-up">
+              <p class="price-card__tier">Премиум</p>
+              <p class="price-card__amount">от 135 000 ₽</p>
+              <p class="price-card__note">Высокий ценник</p>
+              <ul class="price-card__list">
+                <li>Полный день, арт-дирекшн и расширенная команда по запросу</li>
+                <li>Сложные локации, ночные съёмки, спецтехника</li>
+                <li>Расширенный пост, варианты цвета, подготовка под печать и кампанию</li>
+              </ul>
+            </article>
+          </div>
+          <p class="prices__disclaimer reveal-up">
+            Итоговая стоимость зависит от прав, сроков, логистики и объёма постпродакшна — финальную цифру фиксируем в
+            смете до старта.
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer" id="contact">
+        <div class="footer__inner">
+          <p class="footer__label reveal-up">Связаться</p>
+          <a class="footer__mail magnetic reveal-up" href="mailto:hello@dimitriydavis.studio">hello@dimitriydavis.studio</a>
+          <p class="footer__note reveal-up">Отвечаю в течение двух рабочих дней. Укажите задачу, сроки и референсы.</p>
+          <nav class="footer-legal" aria-label="Юридическая информация">
+            <details class="footer-legal__block reveal-up">
+              <summary>Демонстрационный сайт</summary>
+              <div class="footer-legal__body">
+                <p>
+                  Этот интернет-ресурс создан исключительно в демонстрационных целях: для показа вёрстки, анимации и
+                  подачи контента. Он не является коммерческим предложением, публичной офертой или рекламой услуг
+                  фотографа в юридическом смысле.
+                </p>
+                <p>
+                  Персона, контакты, цены и описания сценариев на странице носят иллюстративный характер. Используемые
+                  изображения приведены как пример портфолио-оформления; права на материалы принадлежат их правообладателям.
+                </p>
+              </div>
+            </details>
+            <details class="footer-legal__block reveal-up">
+              <summary>Условия использования (демо)</summary>
+              <div class="footer-legal__body">
+                <p>
+                  Настоящий текст размещён в демонстрационной версии сайта. Разработчик и владелец макета не несут
+                  обязательств перед посетителями, возникших из использования или невозможности использования этого
+                  ресурса.
+                </p>
+                <p>
+                  Копирование дизайна и кода допускается только с разрешения правообладателя проекта. Запрещается
+                  выдавать демо-сайт за действующий коммерческий сервис без явного указания на демонстрационный характер.
+                </p>
+              </div>
+            </details>
+            <details class="footer-legal__block reveal-up">
+              <summary>Политика конфиденциальности (демо)</summary>
+              <div class="footer-legal__body">
+                <p>
+                  Эта страница статическая: через неё не собираются персональные данные, не ведётся аналитика и не
+                  используются формы, отправляющие информацию на сервер (кроме стандартного перехода по ссылке
+                  <code>mailto:</code>, который выполняет ваш почтовый клиент).
+                </p>
+                <p>
+                  Раздел добавлен как пример юридического блока в подвале демонстрационного сайта и не заменяет
+                  юридическую экспертизу для реального проекта.
+                </p>
+              </div>
+            </details>
+          </nav>
+          <p class="footer__copy">© Димитрий Дэвис, 2026</p>
+        </div>
+      </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script src="./main.js" defer></script>
+  </body>
+</html>
